@@ -7,3 +7,5 @@ xmpppy
 easygui
 requests
 python-telegram-bot
+lxml
+beautifulsoup4
