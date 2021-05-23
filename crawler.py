@@ -53,7 +53,7 @@ class Crawler(object):
             os.path.join(CURRENT_PATH, 'mapping/regions.json'))
 
         # set private vars
-        self.API_URL = ("https://ca.ovh.com/engine/api/dedicated/server/availabilities?country=fra")
+        self.API_URL = ("https://ca.ovh.com/engine/api/dedicated/server/availabilities?country=ca")
         self.STATES = {}
         self.HTTP_ERRORS = []
         self.interval = 8   # seconds between interations
@@ -179,9 +179,11 @@ if __name__ == "__main__":
 
     # prepare states tracked by the user
     TRACKED_STATES = []
-    for server in _CONFIG['servers']:
-        TRACKED_STATES.append(
-            '%s_available_in_%s' % (server.lower(), _CONFIG['region'].lower()))
+    for region in _CONFIG['regions']:
+        for server in _CONFIG['servers']:
+            TRACKED_STATES.append(
+                '%s_available_in_%s' % (server.lower(), region.lower())
+            )
     _logger.info('Tracking states: %s', TRACKED_STATES)
 
     # define state-change callback to notify the user

@@ -1,4 +1,4 @@
 {
-    "canada": ["bhs"],
+    "northAmerica": ["bhs"],
     "europe": ["gra", "rbx", "sbg", "par"]
 }
