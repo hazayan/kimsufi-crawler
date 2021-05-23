@@ -53,7 +53,7 @@ class Crawler(object):
             os.path.join(CURRENT_PATH, 'mapping/regions.json'))
 
         # set private vars
-        self.API_URL = ("https://ca.ovh.com/engine/api/dedicated/server/availabilities?country=fra")
+        self.API_URL = ("https://ca.ovh.com/engine/api/dedicated/server/availabilities?country=ca")
         self.STATES = {}
         self.HTTP_ERRORS = []
         self.interval = 8   # seconds between interations
