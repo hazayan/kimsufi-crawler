@@ -179,9 +179,11 @@ if __name__ == "__main__":
 
     # prepare states tracked by the user
     TRACKED_STATES = []
-    for server in _CONFIG['servers']:
-        TRACKED_STATES.append(
-            '%s_available_in_%s' % (server.lower(), _CONFIG['region'].lower()))
+    for region in _CONFIG['regions']:
+        for server in _CONFIG['servers']:
+            TRACKED_STATES.append(
+                '%s_available_in_%s' % (server.lower(), region.lower())
+            )
     _logger.info('Tracking states: %s', TRACKED_STATES)
 
     # define state-change callback to notify the user
